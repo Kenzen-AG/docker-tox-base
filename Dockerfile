@@ -1,6 +1,6 @@
-FROM themattrix/pyenv
+FROM burnpanck/pyenv
 
-MAINTAINER Matthew Tardiff <mattrix@gmail.com>
+MAINTAINER Yves Delley <delleyves@gmx.ch>
 
 RUN groupadd -r tox --gid=999 && \
     useradd -m -r -g tox --uid=999 tox
@@ -21,9 +21,9 @@ RUN set -x && \
     gosu nobody true && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pyenv local 3.6.4 && \
+RUN pyenv local 3.6.6 && \
     python -m pip install -U pip && \
-    python -m pip install tox==2.9.1 && \
+    python -m pip install tox==3.1.2 && \
     pyenv local --unset && \
     pyenv rehash
 
